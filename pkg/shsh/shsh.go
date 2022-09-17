@@ -28,7 +28,7 @@ func ParseRAW(r io.Reader) error {
 	}
 
 	shsh := &SHSH{
-		Generator: fmt.Sprintf("0x%x", binary.LittleEndian.Uint64(img4.RestoreInfo.Generator.Data)),
+		Generator: fmt.Sprintf("%#x", binary.LittleEndian.Uint64(img4.RestoreInfo.Generator.Value)),
 		// TODO: this is gross (I'm skipping past the Context Specific type to get to the Im4m)
 		ApImg4Ticket: img4.Manifest.ApImg4Ticket.FullBytes[4:],
 	}
